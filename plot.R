@@ -37,3 +37,28 @@ y <- yinter + slope * x + rnorm(num_of_samples, sd = sqrt(sigSq))
 plot(x, y)
 abline(yinter, slope, col="blue")
 dev.print(pdf, "linescatter.pdf")
+
+# Third example - again from: The Art of R Programming by Norman Matloff
+
+# each line contains data for one student:
+# average quiz, average assignment, midterm exam, final exam, and
+# the final course grade.
+# each grade is a range of 0 to 100.
+# grading algorithm: q*0.1 + ass*0.3 + mid*0.2 + fin*0.4
+quizexam <- read.table("grades.txt", header=FALSE)
+names(quizexam) <- c("Quiz", "Assignment", "Midterm", "Final", "Course")
+
+# plot the graph of (quiz, final exam) exam scores
+#plot(quizexam[,1], quizexam[,4])
+plot(quizexam$Quiz, quizexam$Final, type="p", col="red",
+     xlab="Average Quiz Score", ylab="Final Exam Score")
+
+# let's try to predict final exam score from the average quiz score
+# by fitting a straight line to the (quiz, final exam) pairs
+#in the data
+lma <- lm(quizexam$Final ~ quizexam$Quiz)
+# lma is a data frame which is a list of vectors with each vector
+# corresponding to columns if the data frame is viewed as a matrix
+# above could also have been written as:
+abline(lma)
+dev.print(pdf, "quizexamcorr.pdf")
