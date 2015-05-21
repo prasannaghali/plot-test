@@ -1,6 +1,6 @@
 ---
 title: "Readme.Rmd"
-author: "prasannaghali"
+author: "pghali"
 date: "Wednesday, May 20, 2015"
 output: html_document
 ---
