@@ -1,6 +1,11 @@
 ---
+<<<<<<< HEAD
 title: "Readme.md"
-author: "prasannaghali"
+author: "pghali"
+=======
+title: "Readme.Rmd"
+author: "pghali"
+>>>>>>> testing
 date: "Wednesday, May 20, 2015"
 output: html_document
 ---
